@@ -1,0 +1,58 @@
+# Шаблон публикации профиля.
+#
+# Каталог профилей на сайте собирается из issues с меткой «profile»:
+# у сайта нет своего сервера, а здесь уже есть авторство, даты, реакции
+# и модерация. Названия полей ниже совпадают с тем, что разбирает
+# страница профилей, — менять их без правки web/lib/github.ts нельзя.
+
+name: Профиль обхода
+description: Поделиться рабочим профилем — набором исключений под игру или сервис
+title: "[профиль] "
+labels: ["profile"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Профиль описывает, чего обходу трогать не следует: домены лаунчеров,
+        игровые порты, QUIC. В отличие от стратегии он не зависит от провайдера,
+        поэтому им и есть смысл делиться.
+
+        Рецепт берётся в приложении: **Настройки → Профили → кнопка копирования**
+        рядом с профилем.
+
+  - type: input
+    id: isp
+    attributes:
+      label: Провайдер
+      description: Необязательно, но помогает другим — особенно если профиль про сеть.
+      placeholder: Ростелеком, Москва
+    validations:
+      required: false
+
+  - type: input
+    id: games
+    attributes:
+      label: Игры и сервисы
+      description: Для чего этот профиль.
+      placeholder: Discord, Warframe, Steam
+    validations:
+      required: false
+
+  - type: textarea
+    id: note
+    attributes:
+      label: Описание
+      description: Что профиль делает и когда пригодится.
+      placeholder: Убирает игровые порты из перехвата — с ним заходит в матч.
+    validations:
+      required: false
+
+  - type: textarea
+    id: recipe
+    attributes:
+      label: Рецепт
+      description: "Строка из приложения. Начинается на fortochka1:"
+      placeholder: "fortochka1:..."
+      render: text
+    validations:
+      required: true
