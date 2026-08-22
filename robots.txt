@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://abbadon22.github.io/fortochka/sitemap.xml
